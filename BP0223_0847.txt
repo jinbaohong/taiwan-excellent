@@ -1,0 +1,48 @@
+d.result <- round(pred$net.result)
+> sum(testtarget==pred.result)/length(testtarget)
+[1] 0.7563758389
+> print( table(pred.result,testtarget) )
+           testtarget
+pred.result    0    1
+          0 1093   56
+          1  307   34
+> pred.real <- compute(bpn, real[,c("CAPITAL","EX15","attendevent","date")])
+> pred.real.result = round(pred.real$net.result)
+> print( table(pred.real.result) )
+pred.real.result
+    0     1 
+55977  2015 
+> pred.train <- compute(bpn, train[,c("CAPITAL","EX15","attendevent","date")])
+> pred.train.result <- round(pred.train$net.result)
+> sum(train$agree==pred.train.result)/length(train$agree)
+[1] 0.764527845
+> print( table(pred.train.result,train$agree) )
+                 
+pred.train.result   0   1
+                0 791 236
+                1 153 472
+> 
+> bpn$weights
+[[1]]
+[[1]][[1]]
+               [,1]          [,2]
+[1,]    4.563988373  -7.687719842
+[2,]  -23.753363690 -13.691531629
+[3,] -694.508634029  -8.466122674
+[4,]   -6.025323760 174.698302550
+[5,]   -5.805173509   9.927119451
+
+[[1]][[2]]
+             [,1]         [,2]
+[1,]  3.035568515 -100.4342437
+[2,]  2.197704686  891.7799250
+[3,] -1.578954393 -500.6442758
+
+[[1]][[3]]
+              [,1]
+[1,]  5.1469041568
+[2,] -5.3388199599
+[3,]  0.2655849381
+
+
+> 
